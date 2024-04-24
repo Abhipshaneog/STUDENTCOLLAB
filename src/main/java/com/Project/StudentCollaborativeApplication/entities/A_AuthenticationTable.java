@@ -1,9 +1,6 @@
 package com.Project.StudentCollaborativeApplication.entities;
 
-
-
 import java.time.LocalDateTime;
-
 //import javax.persistence.Column;
 //import javax.persistence.GeneratedValue;
 //import javax.persistence.GenerationType;
@@ -49,6 +46,11 @@ public class A_AuthenticationTable {
 	    @Column(name = "CREATED_DATE", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	    
 	    private LocalDateTime createdDate;
+	    
+	    @PrePersist
+	    protected void onCreate() {
+	        createdDate = LocalDateTime.now();
+	    }
 	    
 
 	    public A_AuthenticationTable(int id, String emailId, String password,
